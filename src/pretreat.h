@@ -1,6 +1,6 @@
-//pretreat, including max, min, sort, deduplicate, stuff, etc
-#ifndef _PRETREAT_H
-#define _PRETREAT_H
+//pretreat, including sort, deduplicate, stuff, etc
+#ifndef _SORT_H
+#define _SORT_H
 
 #include <stdio.h>
 #include <math.h>

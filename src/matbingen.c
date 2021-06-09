@@ -16,7 +16,7 @@ long long fine_poisson_arrival(int *demand, const int t, long long *outside_prod
 	long long packet_count = 0;
 	int islow[NUM_PORT * NUM_PORT];
 
-//#pragma unroll(4)
+	//#pragma unroll(4)
 	for (int port_iter = 0; port_iter < NUM_PORT * NUM_PORT; ++port_iter)
 	{
 		if (port_iter % (NUM_PORT + 1)) // (n+1)必然整除nxn矩阵的主对角线编号
@@ -130,12 +130,12 @@ int long_poisson_arrival(int *d, const int t, const int refresh, int simulated_s
 	{
 		arrival_count = poisson_arrival(d, refresh);
 		sum += arrival_count;													  // 总包到达计数
-		total_arrival_product += (simulated_slot + (refresh >> 1)) * arrival_count; // 求总包到达积
+		total_arrival_product += (simulated_slot + refresh >> 1) * arrival_count; // 求总包到达积
 		simulated_slot += refresh;
 	}
 	arrival_count = poisson_arrival(d, res);
 	sum += arrival_count;												  // 总包到达计数
-	total_arrival_product += (simulated_slot + (res >> 1)) * arrival_count; // 求总包到达积
+	total_arrival_product += (simulated_slot + res >> 1) * arrival_count; // 求总包到达积
 	simulated_slot += res;
 
 	return sum;
